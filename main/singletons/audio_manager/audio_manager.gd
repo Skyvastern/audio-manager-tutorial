@@ -8,6 +8,14 @@ const MUTE_DB: float = -50
 @export var clips: Node
 @export var one_shots: Node
 
+@export_group("Extras")
+@export var click_audio: AudioStream
+@export var window_audio: AudioStream
+
+
+func _ready() -> void:
+	_play("Main")
+
 
 func _play(audio_name: String, from_position: float = 0.0) -> void:
 	if active_music_stream:
@@ -59,3 +67,11 @@ func _change_volume(
 	var tween: Tween = create_tween()
 	tween.tween_property(active_music_stream, "volume_db", to, duration)
 	tween.tween_callback(callback)
+
+
+func play_click_audio() -> void:
+	play_audio_one_shot(click_audio, 0, 0.015)
+
+
+func play_window_audio() -> void:
+	play_audio_one_shot(window_audio)

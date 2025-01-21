@@ -20,10 +20,12 @@ func _process(_delta: float) -> void:
 
 
 func _on_reload_btn_pressed() -> void:
+	AudioManager.play_click_audio()
 	get_tree().reload_current_scene()
 
 
 func _on_exit_btn_pressed() -> void:
+	AudioManager.play_click_audio()
 	get_tree().quit()
 
 
@@ -32,5 +34,6 @@ func _on_pause_update() -> void:
 	
 	if get_tree().paused:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		AudioManager.play_window_audio()
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN

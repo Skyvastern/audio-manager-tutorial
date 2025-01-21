@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://by3dijh8y3an7"]
+[gd_scene load_steps=9 format=3 uid="uid://by3dijh8y3an7"]
 
 [ext_resource type="Script" path="res://main/player/gun/gun.gd" id="1_eymwi"]
 [ext_resource type="Texture2D" uid="uid://bkq3dv5ubd72" path="res://assets/textures/kenney-scribble-textures/gun.svg" id="1_ppkb7"]
+[ext_resource type="AudioStream" uid="uid://cae8drx6dufm8" path="res://assets/audio/effects/kenney_digital_audio/_muzzle___laser6.ogg" id="3_0mgup"]
 [ext_resource type="PackedScene" uid="uid://baaal56l5ullx" path="res://main/player/gun/bullet/bullet.tscn" id="3_71q0t"]
 
 [sub_resource type="Animation" id="Animation_2m3wu"]
@@ -139,6 +140,7 @@ _data = {
 script = ExtResource("1_eymwi")
 bullet_scene = ExtResource("3_71q0t")
 firepoint = NodePath("Root/Body/Firepoint")
+muzzle_audio = ExtResource("3_0mgup")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Root" type="Node2D" parent="."]
