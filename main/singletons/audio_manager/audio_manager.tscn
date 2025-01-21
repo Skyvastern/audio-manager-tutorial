@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://main/singletons/audio_manager/audio_manager.gd" id="1_eoknc"]
 [ext_resource type="PackedScene" uid="uid://dsbqjecy7q1rn" path="res://main/singletons/audio_manager/audio_one_shot/audio_one_shot.tscn" id="2_lnx0f"]
 [ext_resource type="AudioStream" uid="uid://cbpdrc44e0jlo" path="res://assets/audio/music/silly_fun/Silly Fun.mp3" id="3_c4ynf"]
-[ext_resource type="AudioStream" uid="uid://bolvhu83pxkt0" path="res://assets/audio/effects/kenney_ui_audio/click3.ogg" id="3_ema0a"]
-[ext_resource type="AudioStream" uid="uid://bvmdpowjmntoc" path="res://assets/audio/effects/kenney_ui_audio/rollover5.ogg" id="4_roqbm"]
+[ext_resource type="AudioStream" uid="uid://bolvhu83pxkt0" path="res://assets/audio/effects/kenney_ui_audio/_click___click3.ogg" id="3_ema0a"]
+[ext_resource type="AudioStream" uid="uid://bvmdpowjmntoc" path="res://assets/audio/effects/kenney_ui_audio/_window___rollover5.ogg" id="4_roqbm"]
 
 [node name="Audio Manager" type="Node" node_paths=PackedStringArray("clips", "one_shots")]
 process_mode = 3
