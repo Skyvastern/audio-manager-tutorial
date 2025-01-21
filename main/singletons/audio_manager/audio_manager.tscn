@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cihdgu3lwwpct"]
+
+[ext_resource type="Script" path="res://main/singletons/audio_manager/audio_manager.gd" id="1_eoknc"]
+[ext_resource type="PackedScene" uid="uid://dsbqjecy7q1rn" path="res://main/singletons/audio_manager/audio_one_shot/audio_one_shot.tscn" id="2_lnx0f"]
+
+[node name="Audio Manager" type="Node" node_paths=PackedStringArray("clips", "one_shots")]
+script = ExtResource("1_eoknc")
+audio_one_shot_scene = ExtResource("2_lnx0f")
+clips = NodePath("Clips")
+one_shots = NodePath("One Shots")
+
+[node name="Clips" type="Node" parent="."]
+
+[node name="One Shots" type="Node" parent="."]
