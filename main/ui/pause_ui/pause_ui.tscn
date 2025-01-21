@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhv8o46kh81b4"]
+
+[ext_resource type="Script" path="res://main/ui/pause_ui/pause_ui.gd" id="1_5q7bt"]
+[ext_resource type="Texture2D" uid="uid://c5x5gtfk3dkho" path="res://assets/textures/material_icons/reload_icon.svg" id="2_fo0p7"]
+[ext_resource type="Texture2D" uid="uid://dh8fyuftvqhyd" path="res://assets/textures/material_icons/logout_icon.svg" id="3_uuv41"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tr3hl"]
+load_path = "res://.godot/imported/reload_icon.svg-f3994078a95f08cf06031373f14b166b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rd5c5"]
+texture = SubResource("CompressedTexture2D_tr3hl")
+modulate_color = Color(0.294118, 0.294118, 0.294118, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dsyfr"]
+load_path = "res://.godot/imported/reload_icon.svg-f3994078a95f08cf06031373f14b166b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0rvo"]
+texture = SubResource("CompressedTexture2D_dsyfr")
+modulate_color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wh405"]
+texture = ExtResource("2_fo0p7")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_46lam"]
+texture = ExtResource("3_uuv41")
+modulate_color = Color(0.294118, 0.294118, 0.294118, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_27rfr"]
+texture = ExtResource("3_uuv41")
+modulate_color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2bwpb"]
+texture = ExtResource("3_uuv41")
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="Pause UI" type="Control" node_paths=PackedStringArray("reload_btn", "exit_btn")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5q7bt")
+reload_btn = NodePath("Buttons/Reload")
+exit_btn = NodePath("Buttons/Exit")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.784314)
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 42.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Reload" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(84, 84)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_rd5c5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s0rvo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_wh405")
+
+[node name="Exit" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(84, 84)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_46lam")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_27rfr")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2bwpb")

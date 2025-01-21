@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://baaal56l5ullx"]
+
+[ext_resource type="Script" path="res://main/player/gun/bullet/bullet.gd" id="1_ie070"]
+[ext_resource type="PackedScene" uid="uid://8cbow4466kic" path="res://main/effects/bullet_impact_effect/bullet_impact_effect.tscn" id="2_6v4wc"]
+[ext_resource type="Texture2D" uid="uid://trexdwu3v38d" path="res://assets/textures/kenney-scribble-textures/bullet.svg" id="3_veqo0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y4wv5"]
+radius = 32.0
+
+[node name="Bullet" type="Area2D" node_paths=PackedStringArray("visibility_notifier")]
+script = ExtResource("1_ie070")
+impact_effect_scene = ExtResource("2_6v4wc")
+impact_effect_color = Color(1, 0.882353, 0.588235, 1)
+visibility_notifier = NodePath("VisibleOnScreenNotifier2D")
+
+[node name="Body" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_veqo0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_y4wv5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(3.2, 3.2)

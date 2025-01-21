@@ -1,0 +1,159 @@
+[gd_scene load_steps=8 format=3 uid="uid://by3dijh8y3an7"]
+
+[ext_resource type="Script" path="res://main/player/gun/gun.gd" id="1_eymwi"]
+[ext_resource type="Texture2D" uid="uid://bkq3dv5ubd72" path="res://assets/textures/kenney-scribble-textures/gun.svg" id="1_ppkb7"]
+[ext_resource type="PackedScene" uid="uid://baaal56l5ullx" path="res://main/player/gun/bullet/bullet.tscn" id="3_71q0t"]
+
+[sub_resource type="Animation" id="Animation_2m3wu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6b3fl"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(-2),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [-0.0349066, 0.0349066, -0.0349066]
+}
+
+[sub_resource type="Animation" id="Animation_7q0lh"]
+resource_name = "shoot"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.0, -0.0349066, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-8, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 1), Vector2(1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"launch_bullet"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sprs0"]
+_data = {
+"RESET": SubResource("Animation_2m3wu"),
+"idle": SubResource("Animation_6b3fl"),
+"shoot": SubResource("Animation_7q0lh")
+}
+
+[node name="Gun" type="Node2D" node_paths=PackedStringArray("firepoint", "anim_player")]
+script = ExtResource("1_eymwi")
+bullet_scene = ExtResource("3_71q0t")
+firepoint = NodePath("Root/Body/Firepoint")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="Root" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Root"]
+position = Vector2(40, -8)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_ppkb7")
+
+[node name="Firepoint" type="Node2D" parent="Root/Body"]
+position = Vector2(192, -10.6667)
+scale = Vector2(1.33333, 1.33333)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sprs0")
+}
+autoplay = "idle"

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://322h5cgel5ly"]
+
+[ext_resource type="Texture2D" uid="uid://ese72u8uvlnt" path="res://assets/textures/kenney-scribble-textures/ground_a.svg" id="1_opn0p"]
+[ext_resource type="Script" path="res://main/world/ground/ground.gd" id="1_q23jp"]
+[ext_resource type="Texture2D" uid="uid://d1uvvxdc1r0l8" path="res://assets/textures/kenney-scribble-textures/ground_b.svg" id="3_ydfcc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0kgu"]
+size = Vector2(144, 144)
+
+[node name="Ground" type="StaticBody2D" node_paths=PackedStringArray("ground_tr")]
+script = ExtResource("1_q23jp")
+ground_tr = NodePath("Body")
+ground_top = ExtResource("1_opn0p")
+ground_middle = ExtResource("3_ydfcc")
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, -72)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_opn0p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -72)
+shape = SubResource("RectangleShape2D_p0kgu")
