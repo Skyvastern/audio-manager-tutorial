@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1h4gsyft8pbt"]
+[gd_scene load_steps=5 format=3 uid="uid://c1h4gsyft8pbt"]
 
+[ext_resource type="Script" path="res://main/main.gd" id="1_2vf6k"]
 [ext_resource type="PackedScene" uid="uid://322h5cgel5ly" path="res://main/world/ground/ground.tscn" id="1_mb3ld"]
 [ext_resource type="PackedScene" uid="uid://vsf5jgvv82r1" path="res://main/player/player.tscn" id="2_itsfi"]
 [ext_resource type="PackedScene" uid="uid://dhv8o46kh81b4" path="res://main/ui/pause_ui/pause_ui.tscn" id="3_2a27a"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_2vf6k")
 
 [node name="BG Layer" type="CanvasLayer" parent="."]
 layer = -1

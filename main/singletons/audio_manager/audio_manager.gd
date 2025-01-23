@@ -13,10 +13,6 @@ const MUTE_DB: float = -50
 @export var window_audio: AudioStream
 
 
-func _ready() -> void:
-	play("Main")
-
-
 func play(audio_name: String, from_position: float = 0.0) -> void:
 	if active_music_stream:
 		if active_music_stream.name == audio_name:
