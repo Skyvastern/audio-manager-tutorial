@@ -22,4 +22,4 @@ visible = false
 shape = SubResource("CircleShape2D_y4wv5")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-scale = Vector2(3.2, 3.2)
+scale = Vector2(19.2, 19.2)
