@@ -10,7 +10,6 @@ const MUTE_DB: float = -50
 
 @export_group("Extras")
 @export var click_audio: AudioStream
-@export var window_audio: AudioStream
 
 
 func play(audio_name: String, from_position: float = 0.0) -> void:
@@ -37,7 +36,3 @@ func play_audio_one_shot(audio_stream: AudioStream, volume_db: float = 0.0, play
 
 func play_click_audio() -> void:
 	play_audio_one_shot(click_audio, 0, 0.015)
-
-
-func play_window_audio() -> void:
-	play_audio_one_shot(window_audio)
