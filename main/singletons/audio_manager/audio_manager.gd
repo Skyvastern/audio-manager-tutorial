@@ -20,11 +20,11 @@ func play(audio_name: String, from_position: float = 0.0, restart: bool = false)
 	active_music_stream.play(from_position)
 
 
-func play_audio_one_shot(audio_stream: AudioStream, volume_db: float = 0.0, play_from: float = 0.0) -> AudioOneShot:
+func play_audio_one_shot(audio_stream: AudioStream, volume_db: float = 0.0, from_position: float = 0.0) -> AudioOneShot:
 	var audio_one_shot: AudioOneShot = audio_one_shot_scene.instantiate()
 	audio_one_shot.stream = audio_stream
 	audio_one_shot.volume_db = volume_db
-	audio_one_shot.play_from = play_from
+	audio_one_shot.from_position = from_position
 	
 	one_shots.add_child(audio_one_shot)
 	return audio_one_shot
