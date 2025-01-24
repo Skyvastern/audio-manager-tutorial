@@ -3,4 +3,4 @@ class_name Main
 
 
 func _ready() -> void:
-	AudioManager.play("Main")
+	AudioManager.play("Main", 0, true)
