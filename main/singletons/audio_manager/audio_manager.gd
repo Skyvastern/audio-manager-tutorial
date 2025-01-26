@@ -12,8 +12,8 @@ const MUTE_DB: float = -50
 @export var click_audio: AudioStream
 
 
-func play(audio_name: String, from_position: float = 0.0, restart: bool = false) -> void:
-	if restart and active_music_stream and active_music_stream.name == audio_name:
+func play(audio_name: String, from_position: float = 0.0, skip_restart: bool = false) -> void:
+	if skip_restart and active_music_stream and active_music_stream.name == audio_name:
 		return
 	
 	active_music_stream = clips.get_node(audio_name)
