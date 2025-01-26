@@ -1,7 +1,6 @@
 extends Node
 
 var active_music_stream: AudioStreamPlayer
-const MUTE_DB: float = -50
 
 @export_group("Main")
 @export var audio_one_shot_scene: PackedScene
